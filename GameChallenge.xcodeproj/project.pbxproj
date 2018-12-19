@@ -7,21 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF4587B321C7D7FE00C59E3E /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4587B221C7D7FE00C59E3E /* Emitter.swift */; };
 		CF846D7A21C73BE70040BE67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D7921C73BE70040BE67 /* AppDelegate.swift */; };
-		CF846D7C21C73BE70040BE67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D7B21C73BE70040BE67 /* ViewController.swift */; };
+		CF846D7C21C73BE70040BE67 /* StartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D7B21C73BE70040BE67 /* StartedViewController.swift */; };
 		CF846D7F21C73BE70040BE67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF846D7D21C73BE70040BE67 /* Main.storyboard */; };
 		CF846D8121C73BE90040BE67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF846D8021C73BE90040BE67 /* Assets.xcassets */; };
 		CF846D8421C73BE90040BE67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF846D8221C73BE90040BE67 /* LaunchScreen.storyboard */; };
+		CF846D8C21C740CF0040BE67 /* LoveLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D8B21C740CF0040BE67 /* LoveLetterViewController.swift */; };
+		CFDD2BCE21C8A087007FEA41 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDD2BCD21C8A087007FEA41 /* SignUpViewController.swift */; };
+		CFE0B91A21C77C8600C6F411 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B91921C77C8600C6F411 /* MainViewController.swift */; };
+		CFE0B91C21C7906400C6F411 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B91B21C7906400C6F411 /* HistoryViewController.swift */; };
+		CFEA638B21C9098700E24DCE /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA638A21C9098700E24DCE /* LoggedInViewController.swift */; };
+		CFEA638D21C925CE00E24DCE /* APIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA638C21C925CE00E24DCE /* APIFunction.swift */; };
+		CFEA638F21C92CB200E24DCE /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA638E21C92CB200E24DCE /* AchievementViewController.swift */; };
+		CFEA639121CA13C600E24DCE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA639021CA13C600E24DCE /* Color.swift */; };
+		CFEA639321CA4A9500E24DCE /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA639221CA4A9500E24DCE /* StoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF4587B221C7D7FE00C59E3E /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
 		CF846D7621C73BE60040BE67 /* GameChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF846D7921C73BE70040BE67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF846D7B21C73BE70040BE67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF846D7B21C73BE70040BE67 /* StartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedViewController.swift; sourceTree = "<group>"; };
 		CF846D7E21C73BE70040BE67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF846D8021C73BE90040BE67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF846D8321C73BE90040BE67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF846D8521C73BE90040BE67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF846D8B21C740CF0040BE67 /* LoveLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLetterViewController.swift; sourceTree = "<group>"; };
+		CFDD2BCD21C8A087007FEA41 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CFE0B91921C77C8600C6F411 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CFE0B91B21C7906400C6F411 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		CFEA638A21C9098700E24DCE /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
+		CFEA638C21C925CE00E24DCE /* APIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunction.swift; sourceTree = "<group>"; };
+		CFEA638E21C92CB200E24DCE /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
+		CFEA639021CA13C600E24DCE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CFEA639221CA4A9500E24DCE /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +75,21 @@
 			isa = PBXGroup;
 			children = (
 				CF846D7921C73BE70040BE67 /* AppDelegate.swift */,
-				CF846D7B21C73BE70040BE67 /* ViewController.swift */,
+				CFE0B91921C77C8600C6F411 /* MainViewController.swift */,
+				CF846D7B21C73BE70040BE67 /* StartedViewController.swift */,
+				CF846D8B21C740CF0040BE67 /* LoveLetterViewController.swift */,
+				CFEA638C21C925CE00E24DCE /* APIFunction.swift */,
+				CFEA639021CA13C600E24DCE /* Color.swift */,
+				CFE0B91B21C7906400C6F411 /* HistoryViewController.swift */,
+				CFEA639221CA4A9500E24DCE /* StoreViewController.swift */,
 				CF846D7D21C73BE70040BE67 /* Main.storyboard */,
+				CFEA638E21C92CB200E24DCE /* AchievementViewController.swift */,
+				CFEA638A21C9098700E24DCE /* LoggedInViewController.swift */,
+				CFDD2BCD21C8A087007FEA41 /* SignUpViewController.swift */,
 				CF846D8021C73BE90040BE67 /* Assets.xcassets */,
 				CF846D8221C73BE90040BE67 /* LaunchScreen.storyboard */,
 				CF846D8521C73BE90040BE67 /* Info.plist */,
+				CF4587B221C7D7FE00C59E3E /* Emitter.swift */,
 			);
 			path = GameChallenge;
 			sourceTree = "<group>";
@@ -135,8 +165,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF846D7C21C73BE70040BE67 /* ViewController.swift in Sources */,
+				CF846D7C21C73BE70040BE67 /* StartedViewController.swift in Sources */,
+				CFEA638D21C925CE00E24DCE /* APIFunction.swift in Sources */,
+				CFEA639121CA13C600E24DCE /* Color.swift in Sources */,
+				CFDD2BCE21C8A087007FEA41 /* SignUpViewController.swift in Sources */,
+				CF4587B321C7D7FE00C59E3E /* Emitter.swift in Sources */,
+				CFEA638F21C92CB200E24DCE /* AchievementViewController.swift in Sources */,
+				CF846D8C21C740CF0040BE67 /* LoveLetterViewController.swift in Sources */,
 				CF846D7A21C73BE70040BE67 /* AppDelegate.swift in Sources */,
+				CFEA639321CA4A9500E24DCE /* StoreViewController.swift in Sources */,
+				CFE0B91C21C7906400C6F411 /* HistoryViewController.swift in Sources */,
+				CFE0B91A21C77C8600C6F411 /* MainViewController.swift in Sources */,
+				CFEA638B21C9098700E24DCE /* LoggedInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
