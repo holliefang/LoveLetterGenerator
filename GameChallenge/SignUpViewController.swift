@@ -21,10 +21,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        getData()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func signUp(_ sender: UIButton) {
@@ -53,7 +49,7 @@ class SignUpViewController: UIViewController {
         
         let data = try? JSONSerialization.data(withJSONObject: userInfo, options: [])
         
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/register") {
+        if let url = URL(string: "\(api)/api/register") {
             var request = URLRequest(url: url)
             request.httpBody = data
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -71,9 +67,7 @@ class SignUpViewController: UIViewController {
                 guard let data = data else { return }
                 print(data)
 
-//                let json = try? JSONSerialization.jsonObject(with: data, options: [])
-//                print(json)
-                 let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : String]
+                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : String]
                 print(json)
                 
                 if let result = json!!["result"] {

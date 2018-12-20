@@ -25,7 +25,7 @@ class AchievementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserDefaults.standard.string(forKey: "token"))
+//        print(UserDefaults.standard.string(forKey: "token"))
         showAchievement(UserDefaults.standard.string(forKey: "token")!)
     }
     
@@ -38,7 +38,7 @@ class AchievementViewController: UIViewController {
         
         let data = try? JSONSerialization.data(withJSONObject: myToken, options: [])
         
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/profile") {
+        if let url = URL(string: "\(api)/api/profile") {
             
             var request = URLRequest(url: url)
             request.httpBody = data
@@ -50,22 +50,6 @@ class AchievementViewController: UIViewController {
                 print(error?.localizedDescription)
                 
                 print((response as? HTTPURLResponse)?.statusCode)
-                //                guard let data1 = data else { return }
-//                print(data)
-                //                let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                //                print(json)
-//                let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
-//                print(json)
-//                self.result = json??["result"] as? String ?? ""
-//                let response = json!!["response"] as? [String: Any]
-//                let accomplishment = response?["Accomplishment"] as? [String: Any]
-//                let findLittleMan = accomplishment?["FindLittleMan"] as? Bool
-//                let remainingPoint = response?["RemainingPoint"] as? Int
-////                self.commomAccomplishment = json!!["commonAccomplishment"] ?? "" as! String
-//                print("///////////////////////")
-//                print(self.result)
-//                print(findLittleMan)
-//                print(remainingPoint)
                 
                 if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any] {
                     print(json)
@@ -83,16 +67,6 @@ class AchievementViewController: UIViewController {
                             if accomplishment["YouAreFilthyRich"] as? String == "true" {
                                 self.array.append("You Are Filthy Rich")
                             }
-                            
-                            
-                            
-//                            let littleManFound = accomplishment["FindLittleMan"]
-//                            print(littleManFound)
-//                            let luckyYou = accomplishment["LuckyYou"]
-//                            print(luckyYou)
-//                            let rich = accomplishment["YouAreFilthyRich"]
-//                            print(rich)
-                            
                             
                             }
                         

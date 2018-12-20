@@ -17,6 +17,7 @@ class LoveLetterViewController: UIViewController {
     @IBOutlet weak var changeColorBtn: UIButton!
     @IBOutlet weak var luckyDrawBtn: UIButton!
     @IBOutlet weak var dwarf: UIImageView!
+    @IBOutlet weak var greenBtn: UIButton!
     
     var nameText = ""
     var senderText = ""
@@ -26,10 +27,22 @@ class LoveLetterViewController: UIViewController {
     var responseFromDwarf = ""
     var result = ""
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if let isAvailaible = UserDefaults.standard.object(forKey: "isAvailaibel") as? String {
+            if isAvailaible == "false" {
+                greenBtn.isHidden = false
+            } else {
+                greenBtn.isHidden = true
+            }
+        }
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+//        greenBtn.isHidden = false
         
         textLabel.text = loveLetterArray.randomElement()
         
@@ -216,12 +229,7 @@ class LoveLetterViewController: UIViewController {
        
         let alert = UIAlertController(title: "Success Rate \(randomNumber!)%", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            
-            
-            //nil
-//            {
-            self.dwarf.isHidden = true
-//        }
+                self.dwarf.isHidden = true
         }
         )
         alert.addAction(action)
@@ -244,7 +252,7 @@ class LoveLetterViewController: UIViewController {
         
         let data = try? JSONSerialization.data(withJSONObject: userInfo, options: [])
         
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/findTheLittleMan") {
+        if let url = URL(string: "\(api)/api/findTheLittleMan") {
             
             var request = URLRequest(url: url)
             request.httpBody = data
@@ -298,7 +306,7 @@ class LoveLetterViewController: UIViewController {
         
         let data = try? JSONSerialization.data(withJSONObject: userInfo, options: [])
         
-        if let url = URL(string: "http://fc64cbf5.ngrok.io/api/personalAccomplishment") {
+        if let url = URL(string: "\(api)/api/personalAccomplishment") {
             
             var request = URLRequest(url: url)
             request.httpBody = data
@@ -331,26 +339,60 @@ class LoveLetterViewController: UIViewController {
         dwarf.isHidden = false
         
     }
-    
-    func hideDwarf() {
-        dwarf.isHidden = true
+    @IBAction func showGreen(_ sender: UIButton) {
+        if !isColorChanged {
+            UIView.animate(withDuration: 0.4) {
+                
+                self.view.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.recipientLabel.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.senderLabel.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.textLabel.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.dateLabel.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.changeColorBtn.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.luckyDrawBtn.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                
+                self.recipientLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.senderLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.textLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.dateLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.changeColorBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) , for: .normal)
+                self.luckyDrawBtn.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) , for: .normal)
+                
+            }
+            
+            isColorChanged = !isColorChanged
+        } else {
+            UIView.animate(withDuration: 0.4) {
+                
+                self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.recipientLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.senderLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.textLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.dateLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.changeColorBtn.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.luckyDrawBtn.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                
+                self.recipientLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.senderLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.textLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.dateLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                self.changeColorBtn.setTitleColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1) , for: .normal)
+                self.luckyDrawBtn.setTitleColor(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1) , for: .normal)
+                
+            }
+            
+            isColorChanged = !isColorChanged
+        }
     }
-//    func rainHeart() {
+    
+    
+
+    //    func rainHeart() {
 //        let emitter = CAEmitterLayer()
 //        emitter.emitterPosition = CGPoint(x: view.frame.width / 2, y: 0)
 //        emitter.emitterSize = CGSize(width: view.frame.width, height: 2)
 //        view.layer.addSublayer(emitter)
-//        /api/personalAccomplishment
 //    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

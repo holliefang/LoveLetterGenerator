@@ -46,7 +46,7 @@ class LoggedInViewController: UIViewController {
         
         let data = try? JSONSerialization.data(withJSONObject: userInfo, options: [])
         
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/login") {
+        if let url = URL(string: "\(api)/api/login") {
             print("url is \(url)")
             
             var request = URLRequest(url: url)

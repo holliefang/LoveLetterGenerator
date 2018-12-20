@@ -21,7 +21,7 @@ class Color: UIViewController {
     var isColorChanged: Bool = false
 
 
-    func changeColorToGreen(_ sender: UIButton) {
+    @IBAction func changeColorToGreen(_ sender: UIButton) {
         if !isColorChanged {
             UIView.animate(withDuration: 0.4) {
                 

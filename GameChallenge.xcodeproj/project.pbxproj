@@ -14,6 +14,8 @@
 		CF846D8121C73BE90040BE67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF846D8021C73BE90040BE67 /* Assets.xcassets */; };
 		CF846D8421C73BE90040BE67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF846D8221C73BE90040BE67 /* LaunchScreen.storyboard */; };
 		CF846D8C21C740CF0040BE67 /* LoveLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D8B21C740CF0040BE67 /* LoveLetterViewController.swift */; };
+		CF970F1721CAB68A000536D2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF970F1621CAB68A000536D2 /* API.swift */; };
+		CF970F1921CB0A39000536D2 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF970F1821CB0A39000536D2 /* Token.swift */; };
 		CFDD2BCE21C8A087007FEA41 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDD2BCD21C8A087007FEA41 /* SignUpViewController.swift */; };
 		CFE0B91A21C77C8600C6F411 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B91921C77C8600C6F411 /* MainViewController.swift */; };
 		CFE0B91C21C7906400C6F411 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B91B21C7906400C6F411 /* HistoryViewController.swift */; };
@@ -22,6 +24,7 @@
 		CFEA638F21C92CB200E24DCE /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA638E21C92CB200E24DCE /* AchievementViewController.swift */; };
 		CFEA639121CA13C600E24DCE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA639021CA13C600E24DCE /* Color.swift */; };
 		CFEA639321CA4A9500E24DCE /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA639221CA4A9500E24DCE /* StoreViewController.swift */; };
+		CFEA639521CA79B700E24DCE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA639421CA79B700E24DCE /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,8 @@
 		CF846D8321C73BE90040BE67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF846D8521C73BE90040BE67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF846D8B21C740CF0040BE67 /* LoveLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLetterViewController.swift; sourceTree = "<group>"; };
+		CF970F1621CAB68A000536D2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CF970F1821CB0A39000536D2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		CFDD2BCD21C8A087007FEA41 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CFE0B91921C77C8600C6F411 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CFE0B91B21C7906400C6F411 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		CFEA638E21C92CB200E24DCE /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		CFEA639021CA13C600E24DCE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CFEA639221CA4A9500E24DCE /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		CFEA639421CA79B700E24DCE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,24 +80,43 @@
 		CF846D7821C73BE60040BE67 /* GameChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				CFDCB6A921CA813700049852 /* Resources */,
 				CF846D7921C73BE70040BE67 /* AppDelegate.swift */,
 				CFE0B91921C77C8600C6F411 /* MainViewController.swift */,
 				CF846D7B21C73BE70040BE67 /* StartedViewController.swift */,
 				CF846D8B21C740CF0040BE67 /* LoveLetterViewController.swift */,
-				CFEA638C21C925CE00E24DCE /* APIFunction.swift */,
-				CFEA639021CA13C600E24DCE /* Color.swift */,
-				CFE0B91B21C7906400C6F411 /* HistoryViewController.swift */,
+				CFDCB6AA21CA839200049852 /* View */,
 				CFEA639221CA4A9500E24DCE /* StoreViewController.swift */,
-				CF846D7D21C73BE70040BE67 /* Main.storyboard */,
-				CFEA638E21C92CB200E24DCE /* AchievementViewController.swift */,
 				CFEA638A21C9098700E24DCE /* LoggedInViewController.swift */,
 				CFDD2BCD21C8A087007FEA41 /* SignUpViewController.swift */,
 				CF846D8021C73BE90040BE67 /* Assets.xcassets */,
 				CF846D8221C73BE90040BE67 /* LaunchScreen.storyboard */,
 				CF846D8521C73BE90040BE67 /* Info.plist */,
-				CF4587B221C7D7FE00C59E3E /* Emitter.swift */,
 			);
 			path = GameChallenge;
+			sourceTree = "<group>";
+		};
+		CFDCB6A921CA813700049852 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CFEA639021CA13C600E24DCE /* Color.swift */,
+				CFEA639421CA79B700E24DCE /* UIButtonExtension.swift */,
+				CF970F1821CB0A39000536D2 /* Token.swift */,
+				CFEA638C21C925CE00E24DCE /* APIFunction.swift */,
+				CF4587B221C7D7FE00C59E3E /* Emitter.swift */,
+				CF970F1621CAB68A000536D2 /* API.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CFDCB6AA21CA839200049852 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFE0B91B21C7906400C6F411 /* HistoryViewController.swift */,
+				CFEA638E21C92CB200E24DCE /* AchievementViewController.swift */,
+				CF846D7D21C73BE70040BE67 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,8 +196,11 @@
 				CFDD2BCE21C8A087007FEA41 /* SignUpViewController.swift in Sources */,
 				CF4587B321C7D7FE00C59E3E /* Emitter.swift in Sources */,
 				CFEA638F21C92CB200E24DCE /* AchievementViewController.swift in Sources */,
+				CF970F1921CB0A39000536D2 /* Token.swift in Sources */,
+				CF970F1721CAB68A000536D2 /* API.swift in Sources */,
 				CF846D8C21C740CF0040BE67 /* LoveLetterViewController.swift in Sources */,
 				CF846D7A21C73BE70040BE67 /* AppDelegate.swift in Sources */,
+				CFEA639521CA79B700E24DCE /* UIButtonExtension.swift in Sources */,
 				CFEA639321CA4A9500E24DCE /* StoreViewController.swift in Sources */,
 				CFE0B91C21C7906400C6F411 /* HistoryViewController.swift in Sources */,
 				CFE0B91A21C77C8600C6F411 /* MainViewController.swift in Sources */,

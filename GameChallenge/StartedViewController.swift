@@ -62,15 +62,7 @@ class StartedViewController: UIViewController {
         
     }
         
-        
-    @IBAction func cancel(_ sender: UIButton) {
-//        recipientTextField.text = ""
-//        dateTextField.text = ""
-//        senderTextField.text = ""
-        
-        dismiss(animated: true)
-    }
-    
+            
     
     
     

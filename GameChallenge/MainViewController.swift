@@ -11,6 +11,11 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet weak var coinLabel: UILabel!
     @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var achivementBtn: UIButton!
+    @IBOutlet weak var purchaseBtn: UIButton!
+    @IBOutlet weak var logInBtn: UIButton!
+    @IBOutlet weak var storeBtn: UIButton!
+    @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var usernameLbl: UILabel!
     
 
@@ -35,6 +40,16 @@ class MainViewController: UIViewController {
         }
         
         loginStatusChecked(savedToken)
+        
+        
+    
+        //Buttons
+        startBtn.styleAsFloatingButton()
+        achivementBtn.styleAsFloatingButton()
+        purchaseBtn.styleAsFloatingButton()
+        logInBtn.styleAsFloatingButton()
+        storeBtn.styleAsFloatingButton()
+        signUpBtn.styleAsFloatingButton()
             }
     
     @IBAction func start(_ sender: UIButton) {
@@ -67,7 +82,7 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as? HistoryViewController
-        vc?.purchaseCount = UserDefaults.standard.value(forKey: "SavedHistory") as! [String]
+        vc?.purchaseCount = purchaseCount
         
     }
     
@@ -79,7 +94,7 @@ class MainViewController: UIViewController {
         
         let data = try? JSONSerialization.data(withJSONObject: myToken, options: [])
         
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/deduction") {
+        if let url = URL(string: "\(api)/api/deduction") {
             
             var request = URLRequest(url: url)
             request.httpBody = data
@@ -96,12 +111,8 @@ class MainViewController: UIViewController {
 
                 let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
                  if let moneyleft = json!!["response"] as? Int {
-                    
-//                    let pontRemainning = Int(moneyleft)
-                    print("moneyleft:\(moneyleft)")
-//                    print("pointRemaining: \(pointRemainning)")
-                    print("HAHAHAHAHHAHAHAHSHOW ME Who you are")
-                }
+                    self.recordPoint(remainingPoint: moneyleft)                }
+                
             
                 print(json)
 
@@ -118,7 +129,7 @@ class MainViewController: UIViewController {
         
         let data = try? JSONSerialization.data(withJSONObject: myToken, options: [])
         
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/profile") {
+        if let url = URL(string: "\(api)/api/profile") {
             
             var request = URLRequest(url: url)
             request.httpBody = data
@@ -131,6 +142,7 @@ class MainViewController: UIViewController {
                 
                 print((response as? HTTPURLResponse)?.statusCode)
                 
+                //MARK: crash-ish
                 if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any] {
                     print(json)
                     if let responseData = json?["response"] as? [String: Any]  {
@@ -155,6 +167,8 @@ class MainViewController: UIViewController {
             self.coinLabel.text = "♥︎\(remainingPoint)"
             self.usernameLbl.text = "Hello, \(self.username)♥︎"
             usernameLbl.isHidden = false
+            storeBtn.isEnabled = true
+            storeBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
             
             if remainingPoint < 10 {
                 startBtn.isEnabled = false
@@ -163,19 +177,23 @@ class MainViewController: UIViewController {
             } else {
                 startBtn.isEnabled = true
                 startBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
-            }        } else {
+            }
+            
+        }
+            
+        else {
             remainingPoint = 0
             self.coinLabel.text = "♥︎\(remainingPoint)"
             self.usernameLbl.text = "Please login."
             
-            if remainingPoint < 10 {
-                startBtn.isEnabled = false
-                startBtn.backgroundColor = UIColor.gray
-            } else {
-                startBtn.isEnabled = true
-                startBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
-
-            }
+//            if remainingPoint < 10 {
+//                startBtn.isEnabled = false
+//                startBtn.backgroundColor = UIColor.gray
+//            } else {
+//                startBtn.isEnabled = true
+//                startBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
+//
+//            }
         }
     }
     
@@ -186,7 +204,7 @@ class MainViewController: UIViewController {
         ]
         
         let data = try? JSONSerialization.data(withJSONObject: myToken, options: [])
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/items") {
+        if let url = URL(string: "\(api)/api/items") {
             var request = URLRequest(url: url)
             request.httpBody = data
             request.httpMethod = "POST"
@@ -199,6 +217,7 @@ class MainViewController: UIViewController {
             
             if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any] {
                 print(json)
+                print("STORE_________VIEWABLE========___OR___NOT")
                 if let response = json?["response"] {
                     print(response)
                 }
@@ -214,7 +233,7 @@ class MainViewController: UIViewController {
             ]
         
         let data = try? JSONSerialization.data(withJSONObject: myToken, options: [])
-        if let url = URL(string: "http://b8069abb.ngrok.io/api/purchase") {
+        if let url = URL(string: "\(api)/api/purchase") {
             var request = URLRequest(url: url)
             request.httpBody = data
             request.httpMethod = "POST"
@@ -235,7 +254,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    func recordPoint() {
+    func recordPoint(remainingPoint: Int) {
         
         
         let formatter = DateFormatter()
