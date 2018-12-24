@@ -17,15 +17,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var storeBtn: UIButton!
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var usernameLbl: UILabel!
+    @IBOutlet weak var signOutBtn: UIButton!
     
 
     var purchaseCount: [String] = []
     var remainingPoint = 0
     var username = ""
+    
 
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         var savedToken = ""
         
@@ -50,6 +52,7 @@ class MainViewController: UIViewController {
         logInBtn.styleAsFloatingButton()
         storeBtn.styleAsFloatingButton()
         signUpBtn.styleAsFloatingButton()
+        signOutBtn.styleAsFloatingButton()
             }
     
     @IBAction func start(_ sender: UIButton) {
@@ -107,14 +110,13 @@ class MainViewController: UIViewController {
                 
                 print((response as? HTTPURLResponse)?.statusCode)
                 print(data)
-                print("---------=-=-=-====-=-=-=-=-=-=-=-=-=====----===---=-==-=-=--==-=-")
 
                 let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any]
                  if let moneyleft = json!!["response"] as? Int {
                     self.recordPoint(remainingPoint: moneyleft)                }
                 
             
-                print(json)
+                print(json as Any)
 
                 }.resume()
         }
@@ -126,6 +128,8 @@ class MainViewController: UIViewController {
             "token" : token,
             "game": "loveLetterGenerator"
         ]
+        print("======here the token in profile=====")
+        print(token)
         
         let data = try? JSONSerialization.data(withJSONObject: myToken, options: [])
         
@@ -145,15 +149,23 @@ class MainViewController: UIViewController {
                 //MARK: crash-ish
                 if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String : Any] {
                     print(json)
-                    if let responseData = json?["response"] as? [String: Any]  {
-                        
-                        if let remainingPoint = responseData["RemainingPoint"] as? Int {
-                            self.remainingPoint = remainingPoint
-                            print(remainingPoint)
-                            
-                        }
-                        if let email = responseData["email"] as? String {
-                            self.username = email
+                    
+                    if let loginStatus = json?["result"] as? String {
+                    
+                    print("Login Status: \(loginStatus)")
+                    
+                    if let responseData = json?["response"] as? [String: Any]
+                    {
+                    
+                            if let remainingPoint = responseData["RemainingPoint"] as? Int {
+                                self.remainingPoint = remainingPoint
+                                print(remainingPoint)
+                                
+                            }
+                            if let email = responseData["email"] as? String {
+                                self.username = email
+                            }
+
                         }
                     }
                 }
@@ -161,40 +173,35 @@ class MainViewController: UIViewController {
         }
     }
     
-    func loginStatusChecked(_ token: String) {
+    func loginStatusChecked(_ token: String?) {
+        
+        self.usernameLbl.text = "Please login."
+
         
         if token != "" {
             self.coinLabel.text = "♥︎\(remainingPoint)"
             self.usernameLbl.text = "Hello, \(self.username)♥︎"
-            usernameLbl.isHidden = false
             storeBtn.isEnabled = true
             storeBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
             
-            if remainingPoint < 10 {
-                startBtn.isEnabled = false
-                startBtn.backgroundColor = UIColor.gray
-
-            } else {
+            if remainingPoint >= 10 {
+                
                 startBtn.isEnabled = true
                 startBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
+                storeBtn.isEnabled = true
+                storeBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
+
+            } else {
+                startBtn.isEnabled = false
+                startBtn.backgroundColor = UIColor.gray
+                storeBtn.isEnabled = false
+                storeBtn.backgroundColor = UIColor.gray
+
+
             }
             
         }
-            
-        else {
-            remainingPoint = 0
-            self.coinLabel.text = "♥︎\(remainingPoint)"
-            self.usernameLbl.text = "Please login."
-            
-//            if remainingPoint < 10 {
-//                startBtn.isEnabled = false
-//                startBtn.backgroundColor = UIColor.gray
-//            } else {
-//                startBtn.isEnabled = true
-//                startBtn.backgroundColor = #colorLiteral(red: 0.845177665, green: 0.4215331046, blue: 0.4057041513, alpha: 1)
-//
-//            }
-        }
+   
     }
     
     func seeItem(_ token: String) {
@@ -267,4 +274,20 @@ class MainViewController: UIViewController {
 
     }
     
+    @IBAction func logOut() {
+        UserDefaults.standard.set("", forKey: "token")
+        coinLabel.text = "0"
+        startBtn.isEnabled = false
+        storeBtn.isEnabled = false
+    }
+    
+    
+  
+    
+
+    
 }
+
+
+
+

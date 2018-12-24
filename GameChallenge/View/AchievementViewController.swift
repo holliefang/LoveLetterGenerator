@@ -26,10 +26,16 @@ class AchievementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print(UserDefaults.standard.string(forKey: "token"))
+        
+        
         showAchievement(UserDefaults.standard.string(forKey: "token")!)
     }
     
     func showAchievement(_ token: String) {
+        
+        
+        print("=====here in the achievement======")
+        print(token)
         
         let myToken: [String: String] = [
             "token" : token,

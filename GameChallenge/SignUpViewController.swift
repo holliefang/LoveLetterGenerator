@@ -24,6 +24,10 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUp(_ sender: UIButton) {
+        
+        
+
+        
         guard accountTextField.text != "" else { return }
         guard let email = accountTextField.text else { return }
         

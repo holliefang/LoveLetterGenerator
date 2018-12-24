@@ -28,12 +28,15 @@ class LoveLetterViewController: UIViewController {
     var result = ""
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         if let isAvailaible = UserDefaults.standard.object(forKey: "isAvailaibel") as? String {
-            if isAvailaible == "false" {
-                greenBtn.isHidden = false
-            } else {
+            if isAvailaible == "true" {
+                print("Button Availaible or NOT", isAvailaible)
                 greenBtn.isHidden = true
+            } else {
+                print("Button Availaible or NOT", isAvailaible)
+                greenBtn.isHidden = false
             }
         }
     }
